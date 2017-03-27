@@ -9,9 +9,9 @@ import java.sql.SQLException;
 public class DBConnection {
 
 	public static final String DBDRIVER = "com.mysql.jdbc.Driver";
-	public static final String DBURL = "jdbc:mysql://localhost:3306/db_affaimanage";
+	public static final String DBURL = "jdbc:mysql://192.168.1.106:3306/db_affairmanage";
 	public static final String DBUSER = "root";
-	public static final String DBPASSWORD = "3309";
+	public static final String DBPASSWORD = "root";
 	
 	/**
 	 * 获取链接 获得数据库连接对象
@@ -23,7 +23,7 @@ public class DBConnection {
 		
 		try {
 			Class.forName(DBDRIVER);
-			conn = DriverManager.getConnection(DBURL);
+			conn = DriverManager.getConnection(DBURL, DBUSER, DBPASSWORD);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -32,7 +32,6 @@ public class DBConnection {
 		
 		return conn;
 	}
-	
 	
 	/**
 	 * 关闭连接对象
